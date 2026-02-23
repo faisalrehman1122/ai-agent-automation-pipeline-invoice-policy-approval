@@ -108,7 +108,6 @@ User Input → INTAKE → PLAN → EXECUTE → EVALUATE → DELIVER → Results
 - ✅ Error Handling
 
 
-MIT License
 
 ---
 

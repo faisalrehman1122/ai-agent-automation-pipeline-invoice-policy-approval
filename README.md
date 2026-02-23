@@ -1,28 +1,20 @@
 # 🤖 AI Agent Automation Pipeline
 
-> An intelligent task automation system that processes invoices, analyzes policies, and makes evidence-based approval decisions with full transparency.
+> Intelligent invoice approval automation system with evidence-based decision making and policy compliance checking.
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 🎯 What It Does
+## 🎯 Overview
 
-This AI Agent automates invoice approval workflows by:
-- **Analyzing** invoice details against company policies
-- **Making decisions** (PASS/FAIL/NEEDS_INFO) with confidence scores
-- **Providing evidence** with policy citations for every decision
-- **Generating reports** in HTML, JSON, and PDF formats
-- **Self-validating** its own output quality
+Automates invoice approval workflows by analyzing invoices against company policies, making evidence-based decisions (PASS/FAIL/NEEDS_INFO), and generating comprehensive reports in HTML, JSON, and PDF formats.
 
-Perfect for finance teams, procurement departments, or any organization that needs automated, auditable decision-making.
+## ✨ Features
 
-## ✨ Key Features
-
-- 🧠 **Intelligent Orchestration**: 5-state workflow (Intake → Plan → Execute → Evaluate → Deliver)
-- 📊 **Three Specialized Tools**: Data analysis, policy retrieval, and report generation
-- 📄 **Multiple Export Formats**: HTML reports, JSON data, and PDF downloads
-- 🔍 **Evidence-Based Decisions**: Every decision includes policy citations
+- 🧠 **5-State Workflow**: Intake → Plan → Execute → Evaluate → Deliver
+- 📊 **Three Tools**: Data analysis, policy retrieval, report generation
+- 📄 **Multiple Exports**: HTML reports, JSON data, PDF downloads
+- 🔍 **Evidence-Based**: Every decision includes policy citations
 - ✅ **Self-Evaluation**: Automatic quality checks and confidence scoring
 - 📁 **CSV Support**: Upload CSV files or enter data manually
 
@@ -31,11 +23,8 @@ Perfect for finance teams, procurement departments, or any organization that nee
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/ai-agent-automation-pipeline.git
-cd ai-agent-automation-pipeline
-
-# Install dependencies
+git clone https://github.com/faisalrehman1122/ai-agent-automation-pipeline-invoice-policy-approval.git
+cd ai-agent-automation-pipeline-invoice-policy-approval
 pip install -r requirements.txt
 ```
 
@@ -45,176 +34,89 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The app will open at `http://localhost:8501`
+## 📖 Usage
 
-## 📖 How to Use
-
-1. **Enter Your Request**: Describe what you want the agent to do
-2. **Provide Invoice Details**: 
-   - Enter text manually, OR
-   - Upload a CSV file with invoice data
-3. **Add Policy Rules**: Paste your approval policy text
-4. **Run Task**: Click the "Run Task" button
-5. **Review Results**: 
-   - View the decision (PASS/FAIL/NEEDS_INFO)
-   - Read the detailed report
-   - Download JSON or PDF exports
-   - Check execution details
+1. Enter your task request
+2. Provide invoice details (text or CSV upload)
+3. Add policy rules
+4. Click "Run Task"
+5. Review decision, report, and download exports
 
 ## 🏗️ Architecture
 
-### 5-State Workflow
+### Workflow
 
 ```
 User Input → INTAKE → PLAN → EXECUTE → EVALUATE → DELIVER → Results
 ```
 
-1. **INTAKE**: Validates inputs, stores policy, analyzes CSV
-2. **PLAN**: Creates 5-step execution plan (AI-generated or template)
-3. **EXECUTE**: Runs each step using specialized tools
-4. **EVALUATE**: Self-checks output quality and confidence
-5. **DELIVER**: Generates final reports and JSON
+### Tools
 
-### Three Core Tools
-
-1. **Data Tool** 📊
-   - Analyzes CSV files
-   - Calculates statistics (mean, min, max)
-   - Identifies missing values and top categories
-
-2. **Policy Tool** 📚
-   - Stores policy/documentation text
-   - Retrieves relevant chunks using keyword matching
-   - Provides citations for evidence-based decisions
-
-3. **Writer Tool** ✍️
-   - Generates structured HTML reports
-   - Creates machine-readable JSON output
-   - Exports professional PDF documents
+1. **Data Tool**: CSV analysis (statistics, missing values, categories)
+2. **Policy Tool**: Policy retrieval with keyword matching and citations
+3. **Writer Tool**: Report generation (HTML, JSON, PDF)
 
 ## 📋 Use Case: Invoice Approval
 
-### Input
-- Invoice details (text or CSV)
-- Approval policy rules
+**Input**: Invoice details + Policy rules  
+**Output**: Decision (PASS/FAIL/NEEDS_INFO) with reasons, evidence, and confidence score
 
-### Output
-- **Decision**: PASS | FAIL | NEEDS_INFO
-- **Reasons**: Clear explanations for the decision
-- **Evidence**: Policy citations supporting the decision
-- **Confidence Score**: Quality assessment (0-100%)
-- **Next Actions**: Recommended follow-up steps
+## 🌐 Live Deployment
 
-### Example
+### Streamlit Cloud
 
-**Invoice**: $1,500 from ABC Supplies Inc. for office equipment  
-**Policy**: "Invoices over $1,000 require manager approval"  
-**Result**: NEEDS_INFO - Requires manager approval with 85% confidence
-
-## 🔍 Self-Evaluation System
-
-The agent automatically validates its own output:
-
-- **Completeness**: Checks all required fields are present
-- **Consistency**: Ensures decision matches confidence score
-- **Evidence Quality**: Verifies policy citations are provided
-- **Confidence Scoring**: Returns NEEDS_INFO if confidence < 70%
+1. Push code to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io/)
+3. Connect repository and deploy
+4. Add API key in Settings → Secrets (optional)
 
 ## 📦 Project Structure
 
 ```
-ai-agent-automation-pipeline/
 ├── app.py                    # Main Streamlit UI
-├── agent.py                  # Agent orchestrator & state machine
-├── config.py                 # Configuration management
-├── requirements.txt          # Python dependencies
-├── tools/
-│   ├── data_tool.py         # CSV analysis tool
-│   ├── policy_tool.py       # Policy retrieval tool
-│   └── writer_tool.py       # Report generation tool
-└── use_cases/
-    └── invoice_approval.py  # Invoice approval logic
+├── agent.py                  # Agent orchestrator
+├── config.py                 # Configuration
+├── requirements.txt          # Dependencies
+├── tools/                    # Three specialized tools
+└── use_cases/                # Invoice approval logic
 ```
-
-## 🌐 Live Deployment
-
-### Deploy to Streamlit Cloud (Free)
-
-1. **Push to GitHub**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/yourusername/ai-agent-automation-pipeline.git
-   git push -u origin main
-   ```
-
-2. **Deploy on Streamlit Cloud**:
-   - Go to [share.streamlit.io](https://share.streamlit.io/)
-   - Click "New app"
-   - Connect your GitHub repository
-   - Set main file: `app.py`
-   - Click "Deploy"
-
-3. **Add API Key** (Optional):
-   - In Streamlit Cloud, go to Settings → Secrets
-   - Add: `OPENAI_API_KEY = "your-key-here"`
-   - App will auto-restart with enhanced AI features
-
-**Your live URL**: `https://your-app-name.streamlit.app`
 
 ## 🛠️ Technology Stack
 
 - **Frontend**: Streamlit
 - **Backend**: Python 3.9+
-- **AI/ML**: OpenAI API (optional, with fallback)
-- **Data Processing**: Pandas
-- **PDF Generation**: ReportLab
-- **Deployment**: Streamlit Community Cloud
+- **AI**: OpenAI API (optional, with fallback)
+- **Data**: Pandas
+- **PDF**: ReportLab
 
 ## 📝 Requirements Met
 
-✅ Simple web UI with user request, progress view, and outputs  
-✅ Complete 5-state agent orchestrator  
-✅ Three specialized tools (Data, Policy, Writer)  
-✅ Invoice approval use case end-to-end  
-✅ Self-evaluation with confidence scoring  
-✅ Evidence-based decisions with citations  
-✅ Multiple export formats (HTML, JSON, PDF)  
-✅ CSV file upload support  
-✅ Live deployment ready  
+✅ Web UI with user request, progress view, outputs  
+✅ 5-state agent orchestrator  
+✅ Three tools (Data, Policy, Writer)  
+✅ Invoice approval use case  
+✅ Self-evaluation system  
+✅ Evidence-based decisions  
+✅ Multiple export formats  
+✅ CSV upload support  
 
 ## 🎁 Extra Features
 
-- ✅ **PDF Export**: Download reports as PDF
-- ✅ **CSV Upload**: Process invoices from CSV files
-- ✅ **Progress Tracking**: Real-time execution step visibility
-- ✅ **Error Handling**: Graceful fallbacks and clear error messages
+- ✅ PDF Export
+- ✅ CSV Upload
+- ✅ Progress Tracking
+- ✅ Error Handling
 
 ## 📚 Documentation
 
-- [CODE_FLOW.md](CODE_FLOW.md) - Detailed step-by-step code flow
-- [DEPLOYMENT.md](DEPLOYMENT.md) - Deployment instructions
-- [INSTALL.md](INSTALL.md) - Installation troubleshooting
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+- [CODE_FLOW.md](CODE_FLOW.md) - Detailed code flow
+- [INSTALL.md](INSTALL.md) - Installation guide
+- [GITHUB_SETUP.md](GITHUB_SETUP.md) - GitHub setup
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-
-## 👤 Author
-
-Your Name - [Your Email](mailto:your.email@example.com)
-
-## 🙏 Acknowledgments
-
-- Built for AI-Pass style automation pipeline
-- Uses Streamlit for rapid web app development
-- OpenAI API for enhanced planning capabilities
+MIT License
 
 ---
 
-**⭐ If you find this project useful, please give it a star!**
+**⭐ Star this repo if you find it useful!**

@@ -107,13 +107,6 @@ User Input → INTAKE → PLAN → EXECUTE → EVALUATE → DELIVER → Results
 - ✅ Progress Tracking
 - ✅ Error Handling
 
-## 📚 Documentation
-
-- [CODE_FLOW.md](CODE_FLOW.md) - Detailed code flow
-- [INSTALL.md](INSTALL.md) - Installation guide
-- [GITHUB_SETUP.md](GITHUB_SETUP.md) - GitHub setup
-
-## 📄 License
 
 MIT License
 
